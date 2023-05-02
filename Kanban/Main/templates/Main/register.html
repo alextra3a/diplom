@@ -1,0 +1,86 @@
+<!doctype html>
+{%load static%}
+<html lang="ru">
+<head>
+    <style>
+
+     body {
+            display: flex;
+            background: #DCDCDC;
+            font-family: Roboto;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            align-items: center;
+            justify-content: center;
+        }
+
+       form {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            text-align:center;
+            border-radius: 10px;
+            align-items: center;
+            justify-content: center;
+            padding: 7% 3%;
+        }
+        label {
+            color: grey;
+            font-weight: bold;
+        }
+
+        label1 {
+            color: grey;
+            font-weight: bold;
+        }
+        #submit {
+            background: #4169E1;
+            color:white;
+            border-radius: 10px;
+            font-size:17px;
+            height: 40px;
+            width: 300px;
+            margin: 13% 0 0 0;
+
+        }
+
+        </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="C:\Users\child\PycharmProjects\App\favicon.png" type="image/png">
+    <title> Настройте свою учетную запись - Picaso </title>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}"/>
+</head>
+<body class="text-center">
+<form>
+    <img src="{% static 'images/Logo.png' %}" alt="" width="120" height="40">
+    <h1>Добро пожаловать в Picaso! </h1>
+    <div id="registration">
+        <div id="FIO" style="text-align:left;margin: 5% auto auto -16%; display: flex; flex-direction: column;width: 133%;">
+        <label1 for="floatingInput" > Ваше имя и фамилию </label1>
+        <br>
+        <input type="fio" class="form-control" id="floatingInput"  placeholder="Иван Иванов">
+
+         </div>
+        <div id="Password" style="text-align:left;margin: 5% auto auto -16%; display: flex; flex-direction: column;width: 133%;">
+        <label1 for="floatingInput1"> Пароль </label1>
+        <br>
+        <input type="password" class="form-control" id="floatingInput1">
+
+        </div>
+        <div id="Repeat" style="text-align:left;margin: 5% auto auto -16%; display: flex; flex-direction: column;width: 133%;">
+        <label1 for="floatingInput2"> Подтверждение пароля </label1>
+        <br>
+        <input type="password" class="form-control" id="floatingInput2">
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" id="submit" > Продолжить </button>
+    </div>
+    <p style="margin: 14% 0 5% 0;"> Не та учетная записи?
+        <a href="/"> Выполните вход</a>
+        со своей
+    </p>
+</form>
+</body>
+</html>

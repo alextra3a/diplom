@@ -1,0 +1,121 @@
+<!doctype html>
+{%load static%}
+<html lang="ru">
+<head>
+    <style>
+        body {
+            background: white;
+            font-family: Roboto;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            color: black;
+            text-align:center;
+            font-size: 50px;
+            margin:0 0 0 0;
+           }
+
+        button {
+            background: #4169E1;
+            color:white;
+
+            font-size:17px;
+            height: 50px;
+            width: 560px;
+            margin: 3.5% 20% -5% 21%;
+        }
+
+        #Main{
+            align-items: center;
+            justify-content: center;
+            text-align:center;
+        }
+
+        #Icons {
+        display:flex;
+        flex-direction:row;
+        justify-content: space-between;
+        margin-top:120px;
+        }
+
+        .elem {
+        display:flex;
+        flex-direction:row;
+        align-items: center;
+        margin-right:10px;
+        width:10%;
+        text-justify: auto;
+        color: grey;
+        font-size:17px;
+        }
+
+
+
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="C:\Users\child\PycharmProjects\App\favicon.png" type="image/png">
+    <title> Создайте учетную запись - Picaso </title>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}"/>
+</head>
+
+<body class="text-center">
+<div id="Main">
+<img src="{% static 'images/Logo.png' %}" alt="" width="150" height="60" style="margin: 2% 0 5% -35%;" >
+<h1>Регистрация</h1>
+
+    <div id="Login">
+
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+               style="margin: 5% 0 0 1%; font-size:18px;width: 550px;height: 40px;">
+        <div id="name" style="margin: 2% auto 0 auto; color:red;font-size:17px;"></div>
+    <button type="button" class="btn btn-success" id="submit" onclick=" FormValidation()" > Зарегестрироваться</button>
+
+
+    </div>
+    <div id="Icons">
+        <div class="elem" style="margin: 0 0 0 36%;">
+            <img src="{% static 'images/предложения.png' %}"  alt="" width="30" height="30">
+            <p style="color: grey; font-size:17px;text-align:center;"> Получите доступ к неограниченным задачам и хранилищу </p>
+        </div>
+        <div class="elem" style="margin: 0 35% 0 0;">
+            <img src="{% static 'images/предложения.png' %}"    alt="" width="30" height="30">
+            <p style="color: grey; font-size:17px;text-align:center;"> Смотрите различные представления, такие как  доска и календарь </p>
+        </div>
+    </div>
+</div>
+<script>
+       function FormValidation(){
+
+    var fn=document.getElementById('floatingInput').value;
+    if(fn == ""){
+        document.getElementById('name').textContent = 'Пожалуйста,введите email';
+        document.getElementById('floatingInput').style.borderColor = "red";
+        return false;
+    }else{
+        document.getElementById('floatingInput').style.borderColor = "green";
+
+    }
+     var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+   var address = document.getElementById('floatingInput').value;
+   if(reg.test(address) == false) {
+      document.getElementById('name').textContent = 'Введите корректный e-mail';
+       document.getElementById('floatingInput').style.borderColor = "red";
+      return false;
+   }
+   else{
+   document.getElementById('floatingInput').style.borderColor = "green";
+   alert('Электронный адрес успешно зарегестрирован');
+    location.href="/register";
+    }
+     }
+    </script>
+
+</body>
+</html>

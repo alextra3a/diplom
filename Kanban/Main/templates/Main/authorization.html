@@ -1,0 +1,164 @@
+<!doctype html>
+{%load static%}
+<html lang="ru">
+<head>
+    <style>
+     body {
+            display: flex;
+            background: #DCDCDC;
+            font-family: Roboto;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            align-items: center;
+            justify-content: center;
+        }
+
+       form {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            text-align:center;
+            border-radius: 10px;
+            align-items: center;
+            justify-content: center;
+            padding: 6% 3%;
+        }
+
+        h1 {
+            color: black;
+            text-align:center;
+            margin:-10% 0 20% 0;
+           }
+
+        #submit {
+            background: #4169E1;
+            color:white;
+            border-radius: 10px;
+            font-size:17px;
+            height: 40px;
+            width: 300px;
+            margin: 13% 0 0 0;
+
+        }
+            #submit1 {
+            background: #4169E1;
+            color:white;
+            border-radius: 10px;
+            font-size:17px;
+            height: 40px;
+            width: 300px;
+            margin: 12% 0 0 1%;
+        }
+
+
+        p1 {
+	   margin: 7% 0 -10% 0;
+        }
+
+        p {
+            color: grey;
+            margin: 14% 0 14% 0;
+        }
+
+        .Login_test{
+	   display: flex;
+  	   flex-direction: column;
+	   width: 100%;
+	   text-align:left;
+        }
+
+
+        label {
+            color: grey;
+            font-weight: bold;
+        }
+
+        label1 {
+            color: grey;
+            font-weight: bold;
+        }
+
+        img{
+        margin:-20% 0 20% 0;
+        }
+
+        .d-none{display:none;
+        flex-direction: column;
+
+	  }
+
+
+
+
+
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="C:\Users\child\PycharmProjects\App\favicon.png" type="image/png">
+    <title> Войти - Picaso </title>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}"/>
+</head>
+
+<body class="text-center">
+<form>
+    <img src="{% static 'images/Logo.png' %}" alt="" width="150" height="60">
+    <h1>Войти в Picaso</h1>
+    <div id="Login" class="Login_test">
+        <label for="floatingInput">Адрес электронной почты</label> <br>
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <div id="name" style="margin: 5% auto 0 auto; color:red;"></div>
+    <button type="button" class="btn btn-success" id="submit" onclick=" FormValidation(); ">Продолжить</button>
+    </div>
+
+    <div id="Password" class="Login_test d-none">
+        <label1 for="floatingInput1"> Пароль</label1>
+        <br>
+        <input type="password" class="form-control" id="floatingInput1">
+        <div id="name1"></div>
+        <button type="button" class="btn btn-success" id="submit1" onclick="  ">Войти</button>
+    </div>
+
+
+    <script>
+       function FormValidation(){
+
+    var fn=document.getElementById('floatingInput').value;
+    if(fn == ""){
+    document.getElementById('name').textContent = 'Пожалуйста,введите email';
+        document.getElementById('floatingInput').style.borderColor = "red";
+        return false;
+    }else{
+        document.getElementById('floatingInput').style.borderColor = "green";
+
+    }
+     var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+   var address = document.getElementById('floatingInput').value;
+   if(reg.test(address) == false) {
+   document.getElementById('name').textContent = 'Введите корректный e-mail';
+
+       document.getElementById('floatingInput').style.borderColor = "red";
+      return false;
+   }
+   else{
+document.getElementById("Password").classList.remove("d-none");
+document.getElementById("Login").style.display = "none";
+    }
+     }
+
+    </script>
+
+
+    <p> Нет учетной записи?
+        <a href="/registration"> Зарегестрироваться </a>
+    </p>
+    <input class="btn btn-primary" type="submit" value="Авторизоваться">
+    <p1>&copy; 2023</p1>
+</form>
+</main>
+</body>
+</html>
+
+
